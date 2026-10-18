@@ -1,0 +1,121 @@
+﻿<Window x:Class="ImageProcessing.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageProcessing"
+        mc:Ignorable="d"
+        Title="Редакторы фотографий" 
+        Height="600" Width="600"
+        MinHeight="600" MinWidth="600">
+
+    <!--Временная блокировка кнопок и показ подсказки-->
+    <Window.Resources>
+        <!-- Стиль для неготовых кнопок -->
+        <Style x:Key="NotReadyButton" TargetType="Button">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="ToolTip" Value="Эта функция пока не готова"/>
+            <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
+        </Style>
+    </Window.Resources>
+    <!--Временная блокировка кнопок и показ подсказки-->
+
+    <!--MenuBar-->
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Margin="0,0,0,0">
+            <MenuItem Header="Справка">
+                <MenuItem Name="AboutProgramme"
+                          Header="О программе"
+                          Click="AboutMenuItem_Click" />
+            </MenuItem>
+        </Menu>
+        <!--MenuBar-->
+
+        <Grid Margin="4" ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--Кнопка вызова окна обработки оттенков серого-->
+        <Button Name="BlackAndWhiteButton"
+                Margin="4"
+                Content="Черно-белое"
+                Grid.Row="0"
+                Grid.Column="0"
+                Click="BlackAndWhiteButton_Click">
+        </Button>
+        <!--Кнопка вызова окна обработки размытия-->
+        <Button Name="BlurButton"
+                Margin="4"
+                Content="Размытость"
+                Grid.Row="0"
+                Grid.Column="1"
+                
+                IsEnabled="False"
+                ToolTip="Эта функция пока не готова"
+                ToolTipService.ShowOnDisabled="True">
+        </Button>
+        <!--Кнопка вызова окна черно-белой обработки (дизеринг)-->
+        <Button Name="DitheringButton"
+                Margin="4"
+                Content="Газетная обработка"
+                Grid.Row="0"
+                Grid.Column="2"
+                
+                IsEnabled="False"
+                ToolTip="Эта функция пока не готова"
+                ToolTipService.ShowOnDisabled="True">
+        </Button>
+        <!--Кнопка вызова окна обрезки для инсты-->
+        <Button Name="InstaCropButton"
+                Margin="4"
+                Content="Обрезка под инсту"
+                Grid.Row="1"
+                Grid.Column="0"
+                
+                IsEnabled="False"
+                ToolTip="Эта функция пока не готова"
+                ToolTipService.ShowOnDisabled="True">
+        </Button>
+        <!--Кнопка вызова окна обрезки для инсты-->
+        <Button Name="FocusStackButton"
+                Margin="4"
+                Content="Фокус стакинг"
+                Grid.Row="1"
+                Grid.Column="2"
+                
+                IsEnabled="False"
+                ToolTip="Эта функция пока не готова"
+                ToolTipService.ShowOnDisabled="True">
+        </Button>
+        <!--Кнопка вызова окна низкополигональной обработки-->
+        <Button Name="LowPolyButton"
+                Margin="4"
+                Content="Low Poly"
+                Grid.Row="2"
+                Grid.Column="0"
+                
+                IsEnabled="False"
+                ToolTip="Эта функция пока не готова"
+                ToolTipService.ShowOnDisabled="True">
+        </Button>
+        <!--Кнопка вызова окна установки водяного знака-->
+        <Button Name="WaterMarkButton"
+                Margin="4"
+                Content="Водяной знак"
+                Grid.Row="2"
+                Grid.Column="1"
+                
+                IsEnabled="False"
+                ToolTip="Эта функция пока не готова"
+                ToolTipService.ShowOnDisabled="True">
+        </Button>
+    </Grid>
+    </DockPanel>
+</Window>
