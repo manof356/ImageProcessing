@@ -47,7 +47,7 @@
                            Padding="10">
                            Разработчик:
                            <LineBreak />
-                           <Hyperlink NavigateUri="https://t.me/crooked_horizon"
+                           <Hyperlink NavigateUri="https://t.me/crooked_horizon/1399"
                                       RequestNavigate="Hyperlink_RequestNavigate">
                                       Завал горизонта
                            </Hyperlink>
@@ -69,7 +69,7 @@
 
                 <!--ПИСАТЬ РУКАМИ ДАТУ!!!-->
                 <TextBlock Grid.Row="0"
-                           Text="от 18.10.2026"
+                           Text="от 20.10.2026"
                            VerticalAlignment="Top"
                            HorizontalAlignment="Right"
                            Margin="10,30" />

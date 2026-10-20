@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ru-RU" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+	<String Id="InstallDirDlgDescription" Value="Нажмите «Далее» для установки в папку по умолчанию&#10;или «Изменить» для выбора другой папки." />
+	<String Id="WelcomeEulaDlgTitle" Value="{\WixUI_Font_Title}Лицензионное соглашение" />
+	<String Id="AdvancedWelcomeEulaDlgTitle" Value="{\WixUI_Font_Title}Лицензионное соглашение" />
+</WixLocalization>
