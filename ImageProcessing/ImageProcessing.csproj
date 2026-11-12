@@ -82,16 +82,26 @@
     <Compile Include="CoreClasses\AlphaFlattener.cs" />
     <Compile Include="CoreClasses\BgraImage.cs" />
     <Compile Include="CoreClasses\GrayscaleProcessor.cs" />
+    <Compile Include="Dithering\DitheringWindow.xaml.cs">
+      <DependentUpon>DitheringWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\FileDialogService.cs" />
     <Compile Include="Services\IFileDialogService.cs" />
     <Compile Include="Services\ImageService.cs" />
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\MessageService.cs" />
+    <Compile Include="wpfCommonParts\BeforeAfterImages.xaml.cs">
+      <DependentUpon>BeforeAfterImages.xaml</DependentUpon>
+    </Compile>
     <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="BlackAndWhite\BlackAndWhiteWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dithering\DitheringWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +121,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MyControls\SliderWithTextBlocks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="wpfCommonParts\BeforeAfterImages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Blur\" />
-    <Folder Include="Dithering\" />
     <Folder Include="FocusStacking\" />
     <Folder Include="InstaCrop\" />
     <Folder Include="LowPoly\" />

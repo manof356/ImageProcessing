@@ -1,18 +1,6 @@
 ﻿using ImageProcessing.BlackAndWhite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ImageProcessing.Dithering;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ImageProcessing
 {
@@ -30,6 +18,14 @@ namespace ImageProcessing
         {
             // Owner: дочернее окно закроется вместе с главным
             var window = new BlackAndWhiteWindow { Owner = this };
+            window.Show(); // главное окно остаётся доступным
+        }
+
+        // функция кнопки "показать окно Dithering обработки"
+        private void DitheringButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Owner: дочернее окно закроется вместе с главным
+            var window = new DitheringWindow { Owner = this };
             window.Show(); // главное окно остаётся доступным
         }
 

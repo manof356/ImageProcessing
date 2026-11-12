@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageProcessing"
         mc:Ignorable="d"
+        
         Title="Редакторы фотографий" 
         Height="600" Width="600"
         MinHeight="600" MinWidth="600">
@@ -62,16 +63,13 @@
                 ToolTipService.ShowOnDisabled="True">
         </Button>
         <!--Кнопка вызова окна черно-белой обработки (дизеринг)-->
-        <Button Name="DitheringButton"
+            <Button Name="DitheringButton"
                 Margin="4"
                 Content="Газетная обработка"
                 Grid.Row="0"
                 Grid.Column="2"
-                
-                IsEnabled="False"
-                ToolTip="Эта функция пока не готова"
-                ToolTipService.ShowOnDisabled="True">
-        </Button>
+                Click="DitheringButton_Click">
+            </Button>
         <!--Кнопка вызова окна обрезки для инсты-->
         <Button Name="InstaCropButton"
                 Margin="4"

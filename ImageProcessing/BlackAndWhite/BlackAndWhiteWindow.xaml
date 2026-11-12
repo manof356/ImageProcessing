@@ -6,10 +6,12 @@
         xmlns:local="clr-namespace:ImageProcessing.BlackAndWhite"
         
         xmlns:MyControls="clr-namespace:ImageProcessing.MyControls"
+        xmlns:wpfCommonParts="clr-namespace:ImageProcessing.wpfCommonParts"
 
         mc:Ignorable="d"
         Title="Черно-белая фотография"
-        Height="450" Width="800">
+        Height="600" Width="800"
+        MinHeight="600" MinWidth="800">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -17,24 +19,9 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <!--Грид для картинок-->
-        <Grid Name="PicturesGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <GroupBox Grid.Column="0"
-                      Header="До"
-                      Margin="4">
-                <!-- Uniform: вписывает картинку целиком, сохраняя пропорции -->
-                <Image Source="{Binding OriginalImage}" Stretch="Uniform"/>
-            </GroupBox>
-            <GroupBox Grid.Column="1"
-                      Header="После"
-                      Margin="4">
-                <Image Source="{Binding ResultImage}" Stretch="Uniform"/>
-            </GroupBox>
-        </Grid>
+        <wpfCommonParts:BeforeAfterImages Grid.Row="0"
+                                          OriginalImage="{Binding OriginalImage}"
+                                          ResultImage="{Binding ResultImage}"/>
         <!--Грид для слайдера-->
         <Grid Name="SliderGrid"
               Grid.Row="1">

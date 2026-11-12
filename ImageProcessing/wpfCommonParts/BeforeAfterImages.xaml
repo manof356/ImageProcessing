@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ImageProcessing.wpfCommonParts.BeforeAfterImages"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ImageProcessing.wpfCommonParts"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!--Грид для картинок-->
+    <Grid Name="PicturesGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0"
+              Header="До"
+              Margin="4,2,2,2"
+              Padding="5">
+            <!-- Uniform: вписывает картинку целиком, сохраняя пропорции -->
+            <Image Source="{Binding OriginalImage}" Stretch="Uniform"/>
+        </GroupBox>
+        <GroupBox Grid.Column="1"
+                  Header="После"
+                  Margin="2,2,4,2"
+                  Padding="5">
+            <Image Source="{Binding ResultImage}" Stretch="Uniform" />
+        </GroupBox>
+    </Grid>
+</UserControl>
