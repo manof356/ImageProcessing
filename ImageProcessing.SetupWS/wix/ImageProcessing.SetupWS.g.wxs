@@ -6,7 +6,7 @@
     To suppress generation of this file remove `set ide=true` from the PostBuildEvent of the VS project
 </auto-generated>
 -->
-  <Package Compressed="yes" ProductCode="c31d7cdd-03c4-458a-bcbd-3c0beac4bfa6" Name="Редакторы фотографий" Language="1049" Version="1.0.0.0" UpgradeCode="c31d7cdd-03c4-458a-bcbd-3c0bdac4bfa5" Manufacturer="Завал горизонта" InstallerVersion="200">
+  <Package Compressed="yes" ProductCode="c31d7cdd-03c4-458a-bcbd-3c0bead4bfa6" Name="Редакторы фотографий" Language="1049" Version="1.1.0.0" UpgradeCode="c31d7cdd-03c4-458a-bcbd-3c0bdac4bfa5" Manufacturer="Завал горизонта" InstallerVersion="200">
     <SummaryInformation Codepage="1251" />
     <Media Id="1" Cabinet="_...44443e44243e433440430444438439_.cab" EmbedCab="yes" />
 

@@ -1,8 +1,9 @@
 ﻿using ImageProcessing.CoreClasses;
 using System;
+using System.IO;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ImageProcessing.Services
 {
@@ -50,21 +51,24 @@ namespace ImageProcessing.Services
         }
 
         // Формат определяем по расширению выбранного файла
-        public static void Save(BgraImage image, string path, bool hasTransparency)
+        public static void Save(BitmapSource image, string path, bool hasTransparency)
         {
+            string ext = Path.GetExtension(path).ToLowerInvariant();   // расширение выбранного файла
             bool keepAlpha = hasTransparency && SupportsTransparency(path);
+            BitmapSource bitmap = image;
 
             // Прозрачность есть, а формат её не держит: накладываем на белый
             if (hasTransparency && !keepAlpha)
-                image = AlphaFlattener.OnWhite(image);
+                bitmap = ToBitmapSource(AlphaFlattener.OnWhite(ToBgra(image)));
 
-            BitmapSource bitmap = ToBitmapSource(image);
+            // Серую картинку (8 бит) оставляем серой, кроме BMP: там перестрахуемся
+            bool isGray = bitmap.Format == PixelFormats.Gray8;
 
             // Альфа не нужна: убираем 4-й канал (32 бита → 24)
-            if (!keepAlpha)
+            if (!keepAlpha && !(isGray && ext != ".bmp"))
                 bitmap = new FormatConvertedBitmap(bitmap, PixelFormats.Bgr24, null, 0);
 
-            BitmapEncoder encoder;
+            BitmapEncoder encoder; 
             switch (Path.GetExtension(path).ToLowerInvariant())
             {
                 case ".png": encoder = new PngBitmapEncoder(); break;
@@ -81,6 +85,16 @@ namespace ImageProcessing.Services
             {
                 encoder.Save(stream);
             }
+        }
+
+        // Массив яркости (1 байт на пиксель) в серую картинку для показа
+        public static BitmapSource FromGray(byte[] gray, int width, int height)
+        {
+            // Gray8: 8 бит на пиксель, строка занимает ровно width байт
+            var bmp = BitmapSource.Create(width, height, 96, 96,
+                                          PixelFormats.Gray8, null, gray, width);
+            bmp.Freeze();
+            return bmp;
         }
     }
 }

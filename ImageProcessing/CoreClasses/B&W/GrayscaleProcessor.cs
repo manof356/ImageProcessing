@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ImageProcessing.CoreClasses
@@ -9,11 +6,6 @@ namespace ImageProcessing.CoreClasses
     // Обесцвечивание со степенью 0..100
     public class GrayscaleProcessor
     {
-        // Веса Rec.709, умноженные на 65536 (сумма ровно 65536)
-        private const int WeightR = 13933;
-        private const int WeightG = 46871;
-        private const int WeightB = 4732;
-
         private readonly BgraImage _source;  // оригинал, никогда не меняется
         private readonly byte[] _gray;       // серый каждого пикселя, считается один раз
         private readonly BgraImage _result;  // буфер результата, переиспользуется
@@ -21,25 +13,10 @@ namespace ImageProcessing.CoreClasses
         public GrayscaleProcessor(BgraImage source)
         {
             _source = source;
-            _gray = new byte[source.Width * source.Height];
+            // Яркость считает общий класс, прозрачность не трогаем
+            _gray = Luminance.FromBgra(source, flattenOnWhite: false);
             _result = new BgraImage(source.Width, source.Height,
                                     new byte[source.Pixels.Length]);
-
-            byte[] p = source.Pixels;
-            int width = source.Width;
-
-            // Строки картинки делим между ядрами процессора
-            Parallel.For(0, source.Height, y =>
-            {
-                int pixel = y * width;   // номер пикселя в начале строки
-                int index = pixel * 4;   // позиция его первого байта
-                for (int x = 0; x < width; x++, pixel++, index += 4)
-                {
-                    int b = p[index], g = p[index + 1], r = p[index + 2];
-                    // +32768 нужно для округления, >> 16 это деление на 65536
-                    _gray[pixel] = (byte)((r * WeightR + g * WeightG + b * WeightB + 32768) >> 16);
-                }
-            });
         }
 
         // amount: 0 это оригинал, 100 это полностью серая
@@ -66,7 +43,7 @@ namespace ImageProcessing.CoreClasses
                     dst[index + 3] = src[index + 3];                                                // A без изменений
                 }
             });
-            return _result;   // один и тот же объект, при следующем вызове его пиксели перезапишутся
+            return _result;   // один и тот же объект, пиксели перезаписываются при следующем вызове
         }
     }
 }

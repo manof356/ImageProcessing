@@ -19,8 +19,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <wpfCommonParts:BeforeAfterImages Grid.Row="0"
-                                  OriginalImage="{Binding OriginalImage}"
-                                  ResultImage="{Binding ResultImage}"/>
+                                          OriginalImage="{Binding OriginalImage}"
+                                          ResultImage="{Binding ResultImage}"
+                                          ScalingMode="NearestNeighbor"/>
         <!--Грид для нижних кнопок-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -55,18 +56,19 @@
                         <!--Кобобокс выбора алгоритма-->
                         <ComboBox Name="AlgorithmComboBox"
                                   Margin="4"
-                                  SelectedIndex="0"
-                                  VerticalAlignment="Center">
-                            <ComboBoxItem Content="Флойда-Стейнберга"/>
-                            <ComboBoxItem Content="Других пока нет"/>
-                        </ComboBox>
+                                  VerticalAlignment="Center"
+                                  ItemsSource="{Binding Algorithms}"
+                                  SelectedItem="{Binding SelectedAlgorithm}"
+                                  DisplayMemberPath="Name"/>
+
                         <!--Кнопка "Применить"-->
                         <Button Name="ApplyAlgorithm" 
-                            Grid.Row="1" 
-                            Content="Применить"
+                                Grid.Row="1" 
+                                Content="Применить"
                                 Margin="4"
                                 VerticalAlignment="Center"
-                                Padding="4"/>
+                                Padding="4"
+                                Command="{Binding ApplyCommand}"/>
 
 
                     </Grid>

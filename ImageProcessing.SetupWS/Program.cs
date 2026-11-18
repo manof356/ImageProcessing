@@ -21,6 +21,9 @@ namespace ImageProcessing.SetupWS
                           { Feature = desktopShortcutFeature })));
 
             project.GUID = new Guid("C31D7CDD-03C4-458A-BCBD-3C0BDAC4BFA5");
+            // версия берётся из exe, так она меняется только в AssemblyInfo.cs
+            var exePath = @"..\ImageProcessing\bin\Release\ImageProcessing.exe";
+            project.Version = new Version(System.Diagnostics.FileVersionInfo.GetVersionInfo(exePath).FileVersion);
             project.Platform = Platform.x64;
             project.Encoding = System.Text.Encoding.UTF8;
             project.Codepage = "1251";

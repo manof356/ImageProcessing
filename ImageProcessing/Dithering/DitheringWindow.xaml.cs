@@ -24,7 +24,7 @@ namespace ImageProcessing.Dithering
         public DitheringWindow()
         {
             InitializeComponent();
-            DataContext = new BlackAndWhiteViewModel(new FileDialogService(), new MessageService());
+            DataContext = new DitheringViewModel(new FileDialogService(), new MessageService());
         }
     }
 }

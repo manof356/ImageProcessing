@@ -77,11 +77,18 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlackAndWhite\BlackAndWhiteViewModel.cs" />
+    <Compile Include="Common\ImageToolViewModel.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ViewModelBase .cs" />
-    <Compile Include="CoreClasses\AlphaFlattener.cs" />
-    <Compile Include="CoreClasses\BgraImage.cs" />
-    <Compile Include="CoreClasses\GrayscaleProcessor.cs" />
+    <Compile Include="CoreClasses\B&amp;W\AlphaFlattener.cs" />
+    <Compile Include="CoreClasses\B&amp;W\BgraImage.cs" />
+    <Compile Include="CoreClasses\Dither\DiffusionKernel.cs" />
+    <Compile Include="CoreClasses\Dither\DitherRegistry.cs" />
+    <Compile Include="CoreClasses\Dither\ErrorDiffusionDitherer.cs" />
+    <Compile Include="CoreClasses\B&amp;W\GrayscaleProcessor.cs" />
+    <Compile Include="CoreClasses\Dither\IDitherer.cs" />
+    <Compile Include="CoreClasses\Dither\Luminance.cs" />
+    <Compile Include="Dithering\DitheringViewModel.cs" />
     <Compile Include="Dithering\DitheringWindow.xaml.cs">
       <DependentUpon>DitheringWindow.xaml</DependentUpon>
     </Compile>
